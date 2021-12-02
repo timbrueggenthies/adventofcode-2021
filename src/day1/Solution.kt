@@ -8,7 +8,7 @@ fun main() {
         return input
             .map { it.toInt() }
             .windowed(2, 1)
-            .fold(0) { acc, (first, second) -> if (second > first) acc + 1 else acc }
+            .count { (first, second) -> second > first }
     }
 
     fun part2(input: List<String>): Int {
@@ -18,7 +18,7 @@ fun main() {
             .windowed(3, 1)
             .map { it.sum() }
             .windowed(2, 1)
-            .fold(0) { acc, (first, second) -> if (second > first) acc + 1 else acc }
+            .count { (first, second) -> second > first }
     }
 
     // test if implementation meets criteria from the description, like:
